@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.dao.UserDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	<select id="findUsername" resultType="User" parameterType="int">
+		select * from user where id = #{id}
+	</select>
+	
+	<insert id="insertUser" parameterType="User">
+		insert into user (username,password) values (#{username},#{password})
+	</insert>
+	
+	<delete id="deleteUser" parameterType="int">
+		delete from user where id=#{id}
+	</delete>
+	
+	<update id="updateUser" parameterType="User">
+		update user set username=#{username},password=#{password} where id=#{id}
+	</update>
+	
+</mapper>
